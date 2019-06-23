@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Engine.ViewModels
 {
-    class GameSession
+    public class GameSession
     {
         public Player CurrentPlayer { get; set; }
 
@@ -16,6 +16,10 @@ namespace Engine.ViewModels
             CurrentPlayer = new Player();
             CurrentPlayer.Name = "Abdul";
             CurrentPlayer.Gold = 1000000;
+            CurrentPlayer.HitPoints = 10;
+            CurrentPlayer.CharacterClass = "Fighter";
+            CurrentPlayer.ExperiencePoints = 0;
+            CurrentPlayer.Level = 1;
 
         }
 
