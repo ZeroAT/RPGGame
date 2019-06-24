@@ -1,4 +1,5 @@
 ﻿using Engine.Models;
+using Engine.Factories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace Engine.ViewModels
     public class GameSession
     {
         public Player CurrentPlayer { get; set; }
+        public Location CurrentLocation { get; set; }
+        public World CurrentWorld { get; set; }
 
         public GameSession()
         {
@@ -20,6 +23,14 @@ namespace Engine.ViewModels
             CurrentPlayer.CharacterClass = "Fighter";
             CurrentPlayer.ExperiencePoints = 0;
             CurrentPlayer.Level = 1;
+
+
+
+            WorldFactory factory = new WorldFactory();
+            CurrentWorld = factory.CreateWorld();
+
+            CurrentLocation = CurrentWorld.LocationAt(0, -1);
+
 
         }
 

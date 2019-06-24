@@ -10,10 +10,9 @@ namespace Engine.Models
     public class Player : INotifyPropertyChanged
     {
         private string _name;
-        private int _experiencePoints;
         private string _characterClass;
         private int _hitPoints;
-        private int _exeriencePoints;
+        private int _experiencePoints;
         private int _level;
         private int _gold;
 
