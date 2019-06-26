@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Engine.Models
 {
-    public class Player : INotifyPropertyChanged
+    public class Player : BaseNotificationClass
     {
         private string _name;
         private string _characterClass;
@@ -24,7 +23,7 @@ namespace Engine.Models
             set
             {
                 _name = value;
-                onPropertyChanged("Name");
+                onPropertyChanged(nameof(Name));
             }
         }
         public string CharacterClass
@@ -33,7 +32,7 @@ namespace Engine.Models
             set
             {
                 _characterClass = value;
-                onPropertyChanged("characterClass");
+                onPropertyChanged(nameof(CharacterClass));
             }
         }
         public int HitPoints
@@ -42,7 +41,7 @@ namespace Engine.Models
             set
             {
                 _hitPoints = value;
-                onPropertyChanged("HitPoints");
+                onPropertyChanged(nameof(HitPoints));
             }
         }
         public int ExperiencePoints
@@ -50,7 +49,7 @@ namespace Engine.Models
             get { return _experiencePoints; }
             set {
                 _experiencePoints = value;
-                onPropertyChanged("ExperiencePoints");
+                onPropertyChanged(nameof(ExperiencePoints));
             }
         }
 
@@ -60,7 +59,7 @@ namespace Engine.Models
             set
             {
                 _level = value;
-                onPropertyChanged("Level");
+                onPropertyChanged(nameof(Level));
             }
         }
 
@@ -70,15 +69,10 @@ namespace Engine.Models
             set
             {
                 _gold = value;
-                onPropertyChanged("Gold");
+                onPropertyChanged(nameof(Gold));
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void onPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }
